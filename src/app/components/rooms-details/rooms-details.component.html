@@ -1,0 +1,87 @@
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-4 pt-5">
+            <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(assets/images/logo.jpg);"></a>
+            <ul class="list-unstyled components mb-5">
+
+                <li class="active">
+                    <a href="#homeSubmenu" (click)="getAllCollections()" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Collections</a>
+                    <ul class="collapse list-unstyled" *ngFor="let item of collections" id="homeSubmenu">
+                        <li>
+                            {{item}}
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Color</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Category</a>
+                </li>
+                <li>
+                    <a href="#">Price Range</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" routerLink='/home'>HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SHOP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">MAGAZINE</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container" *ngIf="showData">
+            <img src="assets/images/room{{imageIndex}}.jpg" width="200" height="200">
+            <span>{{roomData.name}}</span>
+            <br>
+            <span>{{roomData.collection}}</span>
+            <br>
+            <span>{{roomData.details}}</span>
+            <br>
+            <span>{{roomData.color[0]}},{{roomData.color[1]}}</span>
+            <br>
+            <span>${{roomData.price}}</span>
+        </div>
+    </div>
+</div>
